@@ -1,0 +1,41 @@
+<div class="form">
+    <material-input class="input" floatingLabel label="Operand A" type="number" (input)="parseOpA($event.target.value)"></material-input>
+
+    <material-input class="input" floatingLabel label="Operand B" type="number" (input)="parseOpB($event.target.value)"></material-input>
+
+    <angular-recaptcha [(ngModel)]="recaptcha" key="6Lf3HCkUAAAAAJ2mRonRdQ7Ma-k9Or9uj7lxRy7a" auto-render></angular-recaptcha>
+
+    <div class="divider"></div>
+
+    <div *ngIf="errMsg != null" class="err-msg">
+        {{errMsg}}
+    </div>
+
+    <div *ngIf="errMsg != null" class="divider"></div>
+
+    <material-button class="submit-button" [disabled]="false" (click)="submit()">Submit</material-button>
+
+    <div *ngIf="result != null" class="results-container">
+        <h3>Results</h3>
+
+        <div class="result-item">
+            <div class="result-label">Addition</div>
+            <div class="result-value">{{result.addition}}</div>
+        </div>
+
+        <div class="result-item">
+            <div class="result-label">Subtraction</div>
+            <div class="result-value">{{result.subtraction}}</div>
+        </div>
+
+        <div class="result-item">
+            <div class="result-label">Multiplication</div>
+            <div class="result-value">{{result.multiplication}}</div>
+        </div>
+
+        <div class="result-item">
+            <div class="result-label">Division</div>
+            <div class="result-value">{{result.division}}</div>
+        </div>
+    </div>
+</div>
